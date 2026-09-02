@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Visualizzatore Complessità per Algoritmo</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+
+    <body>
+        
+        <div class="app-container">
+            <h1>Visualizzatore Complessità Asintotica</h1>
+
+            <div class="controls-card">
+                <div class="select-row">
+                    <div class="select-group">
+                        <label for="algorithmSelect">Seleziona Algoritmo:</label>
+                        <select id="algorithmSelect">
+                            <option value="fibonacci">Fibonacci Ricorsivo Naive / Torri di Hanoi</option>
+                            <option value="quicksort" selected>Quick Sort</option>
+                            <option value="mergesort">Merge Sort</option>
+                            <option value="insertionsort">Insertion Sort / Bubble Sort</option>
+                            <option value="binarysearch">Ricerca Binaria (Binary Search)</option>
+                            <option value="linearsearch">Ricerca Lineare</option>
+                            <option value="matrixmult">Moltiplicazione Matrici Standard</option>
+                        </select>
+                    </div>
+                    <div class="select-group">
+                        <label for="nInput">Dimensione input (N Intero):</label>
+                        <input type="number" id="nInput" value="20" min="1" max="500" step="1">
+                    </div>
+                </div>
+
+                <div class="mode-selector">
+                    <button class="mode-btn active" id="btn-O">Caso Peggiore - Big-O (O)</button>
+                    <button class="mode-btn" id="btn-Omega">Caso Migliore - Big-Omega (Ω)</button>
+                    <button class="mode-btn" id="btn-Theta">Caso Medio - Big-Theta (Θ)</button>
+                </div>
+
+                <div id="mode-desc" class="mode-description">
+                    Seleziona una notazione per visualizzare il rispettivo limite sul grafico.
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <canvas id="complexityChart"></canvas>
+            </div>
+
+            <div class="table-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Notazione</th>
+                            <th>Tipo di Scenario</th>
+                            <th>Complessità Reale</th>
+                            <th>Descrizione del Comportamento dell'Algoritmo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="row-O">
+                            <td><strong>Big-O (O)</strong></td>
+                            <td>Caso Peggiore (Worst)</td>
+                            <td class="formula" id="val-O">-</td>
+                            <td id="desc-O">-</td>
+                        </tr>
+                        <tr id="row-Omega">
+                            <td><strong>Big-Omega (Ω)</strong></td>
+                            <td>Caso Migliore (Best)</td>
+                            <td class="formula" id="val-Omega">-</td>
+                            <td id="desc-Omega">-</td>
+                        </tr>
+                        <tr id="row-Theta">
+                            <td><strong>Big-Theta (Θ)</strong></td>
+                            <td>Caso Medio (Average)</td>
+                            <td class="formula" id="val-Theta">-</td>
+                            <td id="desc-Theta">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </body>
+</html>
